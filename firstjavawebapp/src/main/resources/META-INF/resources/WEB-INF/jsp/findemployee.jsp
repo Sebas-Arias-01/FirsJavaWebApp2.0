@@ -20,7 +20,7 @@
                 <div class="content">
                     <h1 class="title">Buscar Empleado por ID</h1>
 
-                    <form method="get">
+                    <form method="post" action="findemployee">
                         <label for="searchId">ID del empleado:</label>
                         <input type="text" id="searchId" name="searchId" required>
                         <button type="submit">Buscar</button>

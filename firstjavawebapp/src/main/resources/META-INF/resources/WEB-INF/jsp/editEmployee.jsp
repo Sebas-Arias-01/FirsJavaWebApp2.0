@@ -17,6 +17,7 @@
         <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
         <a href="${pageContext.request.contextPath}/menu"> Menu Principal</a>
         <a href="employees">Gestionar empleados</a>
+        <a href="findemployee">Buscar empleado</a>
     </div>
     <br><br><br><br><br><br>
     <div class="form-container">

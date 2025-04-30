@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
         <a href="${pageContext.request.contextPath}/menu"> Menu Principal</a>
+        <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
         <a href="${pageContext.request.contextPath}/employees">Gestionar empleados</a>
         <a href="findemployee">Buscar empleado</a>
     </div>

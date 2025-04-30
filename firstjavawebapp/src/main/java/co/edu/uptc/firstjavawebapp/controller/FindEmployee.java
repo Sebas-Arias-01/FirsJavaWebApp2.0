@@ -15,8 +15,15 @@ public class FindEmployee extends HttpServlet {
         super();
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        req.getRequestDispatcher("WEB-INF/jsp/findemployee.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/jsp/findemployee.jsp").forward(req, resp);
     }

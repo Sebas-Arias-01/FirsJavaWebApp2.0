@@ -12,15 +12,15 @@
 
             <body>
                 <div class="topnav">
-                    <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
                     <a href="${pageContext.request.contextPath}/menu"> Menu Principal</a>
+                    <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
                     <a href="${pageContext.request.contextPath}/employees">Gestionar empleados</a>
                 </div>
 
                 <div class="content">
                     <h1 class="title">Buscar Empleado por ID</h1>
 
-                    <form method="post" action="findemployee">
+                    <form action="findemployee" method="post" >
                         <label for="searchId">ID del empleado:</label>
                         <input type="text" id="searchId" name="searchId" required>
                         <button type="submit">Buscar</button>

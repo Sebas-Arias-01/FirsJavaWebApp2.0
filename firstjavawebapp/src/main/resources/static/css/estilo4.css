@@ -1,0 +1,180 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212; /* Negro suave */
+    color: #f0e6d2; /* Dorado claro */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de navegación */
+.topnav {
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 2px solid #d4af37;
+}
+
+.topnav a {
+    color: #f0e6d2;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.topnav a:hover {
+    background-color: #d4af37;
+    color: #000;
+    border-radius: 4px;
+}
+
+/* Contenido principal */
+.content {
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.content h1.title {
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 2rem;
+}
+
+/* Tabla de empleados */
+.employee-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+}
+
+.employee-table th, .employee-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    color: #f0e6d2;
+    font-size: 1rem;
+}
+
+.employee-table th {
+    background-color: #000;
+    color: #d4af37;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.employee-table tbody tr:hover {
+    background-color: #2a2a2a;
+}
+
+/* Botones de acción */
+.btn {
+    padding: 0.5rem 1rem;
+    margin: 0 0.3rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn.edit {
+    background-color: #d4af37;
+    color: #000;
+}
+
+.btn.edit:hover {
+    background-color: #f0c94d;
+    transform: translateY(-2px);
+}
+
+.btn.delete {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.btn.delete:hover {
+    background-color: #e74c3c;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #d4af37;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #d4af37;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+    }
+    
+    .employee-table thead {
+        display: none;
+    }
+    
+    .employee-table, .employee-table tbody, .employee-table tr, .employee-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .employee-table tr {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #333;
+        padding: 1rem;
+    }
+
+    .employee-table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .employee-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-weight: bold;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}

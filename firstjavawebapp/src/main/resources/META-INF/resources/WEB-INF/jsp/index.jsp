@@ -14,7 +14,7 @@
                 <input type="password" name="password" required><br><br>
                 <input type="submit" value="Ingresar">
                 <br><br>
-                <% if ("1".equals(request.getParameter("error"))) { %>
+                <% if ("1".equals(request.getAttribute("error"))) { %>
                     <div class="error">Usuario o contraseña incorrectos</div>
                 <% } %>
             </form>

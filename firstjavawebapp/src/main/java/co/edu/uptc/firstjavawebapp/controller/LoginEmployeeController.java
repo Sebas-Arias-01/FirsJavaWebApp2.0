@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.uptc.firstjavawebapp.model.User;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -47,7 +48,9 @@ public class LoginEmployeeController extends HttpServlet{
             session.setAttribute("user", authenticatedUser);
             resp.sendRedirect("/employeeapp/menu");
         } else {
-            resp.sendRedirect("WEB-INF/jsp/index.jsp?error=1");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+            req.setAttribute("error", "1");
+            dispatcher.forward(req, resp);
         }
     }
 

@@ -22,7 +22,7 @@
 
                     <form action="findemployee" method="post" >
                         <label for="searchId">ID del empleado:</label>
-                        <input type="number" id="searchId" name="searchId" required min="1" placeholder="ID del empleado">
+                        <input type="number" id="searchId" name="searchId" required min="1">
                         <button type="submit">Buscar</button>
                     </form>
 

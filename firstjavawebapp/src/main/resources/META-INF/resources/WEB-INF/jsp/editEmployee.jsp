@@ -26,13 +26,13 @@
             <input type="hidden" name="emp_id" value="<%= emp.getId() %>"/>
 
             <label for="emp_name">Nombre:</label>
-            <input type="text" id="emp_name" name="emp_name" value="<%= emp.getName() %>"/>
+            <input type="text" id="emp_name" name="emp_name" value="<%= emp.getName() %>" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"/>
 
             <label for="emp_email">Email:</label>
-            <input type="text" id="emp_email" name="emp_email" value="<%= emp.getEmail() %>"/>
+            <input type="email" id="emp_email" name="emp_email" value="<%= emp.getEmail() %>"/>
 
             <label for="emp_phone">Telefono:</label>
-            <input type="text" id="emp_phone" name="emp_phone" value="<%= emp.getPhone() %>"/>
+            <input type="tel" id="emp_phone" name="emp_phone" value="<%= emp.getPhone() %>" pattern="[0-9]{7,10}"/>
 
             <button type="submit" class="btn">Guardar cambios</button>
         </form>

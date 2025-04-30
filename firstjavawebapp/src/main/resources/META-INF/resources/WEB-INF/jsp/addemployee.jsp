@@ -25,19 +25,19 @@
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
                     <td align="right">ID Empleado:</td>
-                    <td><input type="text" name="emp_id"></td>
+                    <td><input type="number" name="emp_id" min="1" required></td>
                 </tr>
                 <tr>
                     <td align="right">Nombre Empleado:</td>
-                    <td><input type="text" name="emp_name"></td>
+                    <td><input type="text" name="emp_name" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"></td>
                 </tr>
                 <tr>
                     <td align="right">Email empleado:</td>
-                    <td><input type="text" name="emp_email"></td>
+                    <td><input type="email" name="emp_email" required></td>
                 </tr>
                 <tr>
                     <td align="right">Teléfono empleado:</td>
-                    <td><input type="text" name="emp_phone"></td>
+                    <td><input type="tel" name="emp_phone" required pattern="[0-9]{7,10}"></td>
                 </tr>
             </table>
             <input type="submit" value="Enviar">

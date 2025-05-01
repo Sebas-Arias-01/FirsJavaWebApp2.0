@@ -49,16 +49,15 @@ body {
 .main-content {
     flex: 1;
     width: 100%;
-    margin-top: 100px; /* Espacio por la navbar fija */
+    margin-top: 100px;
     display: flex;
-    justify-content: center; /* Centra horizontal */
-    align-items: center;      /* Centra vertical */
+    justify-content: center;
+    align-items: center;
     padding: 2rem 1rem;
     animation: fadeIn 1s ease forwards;
     opacity: 0;
-    min-height: calc(100vh - 100px); /* Asegura que ocupe toda la pantalla menos el navbar */
+    min-height: calc(100vh - 100px);
 }
-
 
 /* Contenedor del formulario */
 .form-container {
@@ -67,10 +66,9 @@ body {
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto; /* 👈 ESTO CENTRA */
+    margin: 0 auto;
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
-
 
 /* Título del formulario */
 h1 {
@@ -80,7 +78,7 @@ h1 {
     text-align: center;
 }
 
-/* Estilo de los labels e inputs */
+/* Estilo de los labels */
 label {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -88,7 +86,10 @@ label {
     display: block;
 }
 
-input[type="text"] {
+/* Estilo unificado para todos los campos de texto */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
@@ -100,7 +101,9 @@ input[type="text"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
     background-color: #3b3b3b;
     outline: none;
 }

@@ -18,46 +18,48 @@
     </div>
 
     <div class="main-content">
-        <h1>EMPLOYEE APP</h1>
-        <h2>Hola, por favor ingrese los datos del usuario</h2>
-
-        <form action="addemployee" method="post">
-            <table cellspacing="3" cellpadding="3" border="1">
-                <tr>
-                    <td align="right">ID Empleado:</td>
-                    <td><input type="number" name="emp_id" min="1" required class="input-style"></td>
-                </tr>
-                <tr>
-                    <td align="right">Nombre Empleado:</td>
-                    <td><input type="text" name="emp_name" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+" class="input-style"></td>
-                </tr>
-                <tr>
-                    <td align="right">Email empleado:</td>
-                    <td><input type="email" name="emp_email" required class="input-style"></td>
-                </tr>
-                <tr>
-                    <td align="right">Teléfono empleado:</td>
-                    <td><input type="tel" name="emp_phone" required pattern="[0-9]{7,10}" class="input-style"></td>
-                </tr>
-            </table>
-            <input type="submit" value="Enviar">
-        </form>
-
-        <% 
-            List<Employee> employeeList = (List<Employee>) request.getSession().getAttribute("employeelist");
-            if (employeeList != null) { 
-        %>
-            <h2>Existen empleados en el sistema!</h2>
-        <% 
-            } else { 
-        %>
-            <h2>Lista de empleados vacía</h2>
-        <% 
-            } 
-        %>
-
-        <a href="employees" class="ver-empleados">Ver lista de empleados</a>
-    </div>
+        <div class="form-container">
+            <h1>EMPLOYEE APP</h1>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Hola, por favor ingrese los datos del usuario</h2>
+    
+            <form action="addemployee" method="post">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; padding: 0.5rem;">ID Empleado:</td>
+                        <td><input type="number" name="emp_id" min="1" required class="input-style"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding: 0.5rem;">Nombre Empleado:</td>
+                        <td><input type="text" name="emp_name" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+" class="input-style"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding: 0.5rem;">Email empleado:</td>
+                        <td><input type="email" name="emp_email" required class="input-style"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding: 0.5rem;">Teléfono empleado:</td>
+                        <td><input type="tel" name="emp_phone" required pattern="[0-9]{7,10}" class="input-style"></td>
+                    </tr>
+                </table>
+    
+                <button type="submit">Enviar</button>
+            </form>
+    
+            <%
+                List<Employee> employeeList = (List<Employee>) request.getSession().getAttribute("employeelist");
+                if (employeeList != null) {
+            %>
+                <h2 style="text-align: center; margin-top: 2rem;">Existen empleados en el sistema!</h2>
+            <%
+                } else {
+            %>
+                <h2 style="text-align: center; margin-top: 2rem;">Lista de empleados vacía</h2>
+            <%
+                }
+            %>
+    
+            <a href="employees" class="link-back">Ver lista de empleados</a>
+        </div>
 
     <div class="footer">
         <p>© 2025 Employee App. Todos los derechos reservados.</p>

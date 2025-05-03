@@ -42,7 +42,13 @@
                     <td><%= emp.getEmail() %></td>
                     <td><%= emp.getPhone() %></td>
                     <td>
-                        <a href="edit?id=<%= emp.getId() %>" class="btn edit">Modificar</a>
+                        <!-- Botón MODIFICAR como formulario POST ocultando el ID -->
+                        <form action="edit" method="post" style="display:inline;">
+                            <input type="hidden" name="emp_id" value="<%= emp.getId() %>">
+                            <button type="submit" class="btn edit">Modificar</button>
+                        </form>
+
+                        <!-- Eliminar aún usa GET, lo puedes cambiar luego si deseas -->
                         <a href="delete?id=<%= emp.getId() %>" class="btn delete">Eliminar</a>
                     </td>
                 </tr>

@@ -2,7 +2,6 @@
 <%
     request.setCharacterEncoding("UTF-8");
 %>
-
 <%@ page import="co.edu.uptc.firstjavawebapp.model.Employee" %>
 <%
     Employee emp = (Employee) request.getAttribute("employee");
@@ -17,15 +16,16 @@
 <body>
     <div class="topnav">
         <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
-        <a href="${pageContext.request.contextPath}/menu"> Menu Principal</a>
+        <a href="${pageContext.request.contextPath}/menu">Menu Principal</a>
         <a href="${pageContext.request.contextPath}/employees">Gestionar empleados</a>
-        <a href="findemployee">Buscar empleado</a>
+        <a href="${pageContext.request.contextPath}/findemployee">Buscar empleado</a>
     </div>
 
     <div class="form-container">
         <h1 class="title-delete">¿Estás seguro que deseas eliminar a este empleado?</h1>
         <form action="delete" method="post">
             <input type="hidden" name="id" value="<%= emp.getId() %>"/>
+            <input type="hidden" name="confirm" value="true"/>
 
             <p><strong>Nombre:</strong> <%= emp.getName() %></p>
             <p><strong>Email:</strong> <%= emp.getEmail() %></p>

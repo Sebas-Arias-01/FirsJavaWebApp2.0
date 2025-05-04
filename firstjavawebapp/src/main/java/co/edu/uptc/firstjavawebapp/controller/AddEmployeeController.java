@@ -28,7 +28,7 @@ public class AddEmployeeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            int id = Integer.valueOf(req.getParameter("emp_id"));
+            int id = Integer.parseInt(req.getParameter("emp_id"));
             String name = req.getParameter("emp_name");
             String email = req.getParameter("emp_email");
             long phone = Long.valueOf(req.getParameter("emp_phone"));

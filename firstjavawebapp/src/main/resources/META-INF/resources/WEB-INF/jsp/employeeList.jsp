@@ -48,8 +48,12 @@
                             <button type="submit" class="btn edit">Modificar</button>
                         </form>
 
-                        <!-- Eliminar aún usa GET, lo puedes cambiar luego si deseas -->
-                        <a href="delete?id=<%= emp.getId() %>" class="btn delete">Eliminar</a>
+                        <form action="delete" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= emp.getId() %>">
+                            <input type="hidden" name="confirm" value="false">
+                            <button type="submit" class="btn delete">Eliminar</button>
+                        </form>
+                        
                     </td>
                 </tr>
             <%

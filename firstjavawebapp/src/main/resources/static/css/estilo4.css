@@ -8,8 +8,8 @@
 /* Fuente general */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #121212; /* Negro suave */
-    color: #f0e6d2; /* Dorado claro */
+    background: #121212;
+    color: #f0e6d2;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,6 +40,59 @@ body {
     border-radius: 4px;
 }
 
+/* Dropdowns */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #f0e6d2;
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #d4af37;
+    color: #000;
+    border-radius: 4px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-content a {
+    color: #f0e6d2;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #d4af37;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Contenido principal */
 .content {
     flex: 1;
@@ -54,11 +107,11 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Tabla de empleados */
-.employee-table {
+/* Tabla de cliente */
+.customer-table {
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 2rem auto;
     border-collapse: collapse;
     background-color: #1e1e1e;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
@@ -68,23 +121,22 @@ body {
     opacity: 0;
 }
 
-.employee-table th, .employee-table td {
+.customer-table th, .customer-table td {
     padding: 1rem;
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid #333;
     color: #f0e6d2;
     font-size: 1rem;
 }
 
-.employee-table th {
+.customer-table th {
     background-color: #000;
     color: #d4af37;
     text-transform: uppercase;
-    font-size: 1rem;
 }
 
-.employee-table tbody tr:hover {
-    background-color: #2a2a2a;
+.customer-table tr:last-child td {
+    border-bottom: none;
 }
 
 /* Botones de acción */
@@ -118,66 +170,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Footer */
-.footer {
-    background-color: #000;
-    color: #d4af37;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    border-top: 2px solid #d4af37;
-    animation: fadeIn 1.2s ease forwards;
-    opacity: 0;
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
-    .topnav {
-        flex-direction: column;
-    }
-    
-    .employee-table thead {
-        display: none;
-    }
-    
-    .employee-table, .employee-table tbody, .employee-table tr, .employee-table td {
-        display: block;
-        width: 100%;
-    }
-
-    .employee-table tr {
-        margin-bottom: 1rem;
-        border-bottom: 2px solid #333;
-        padding: 1rem;
-    }
-
-    .employee-table td {
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
-    }
-
-    .employee-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 1rem;
-        top: 1rem;
-        font-weight: bold;
-        color: #d4af37;
-        text-transform: uppercase;
-    }
-
-    .btn {
-        width: 100%;
-        margin: 0.5rem 0;
-    }
-}
+/* Formulario de búsqueda */
 .search-form {
     display: flex;
     flex-direction: column;
@@ -224,57 +217,63 @@ body {
     background-color: #f0c94d;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #d4af37;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #d4af37;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
 }
 
-.dropbtn {
-    background-color: transparent;
-    color: #f0e6d2; /* Dorado claro */
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-    font-family: inherit;
-    font-size: 1rem;
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.dropbtn:hover {
-    background-color: #d4af37; /* Dorado puro */
-    color: #000;
-    border-radius: 4px;
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+    }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1e1e1e; /* Gris oscuro */
-    min-width: 180px;
-    z-index: 9999;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    border: 1px solid #d4af37;
-    border-radius: 6px;
-    animation: fadeIn 0.3s ease-in-out;
-}
+    .customer-table th {
+        display: none;
+    }
 
-.dropdown-content a {
-    color: #f0e6d2; /* Dorado claro */
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    display: block;
-    transition: background 0.3s ease;
-}
+    .customer-table, .customer-table tr, .customer-table td {
+        display: block;
+        width: 100%;
+    }
 
-.dropdown-content a:hover {
-    background-color: #d4af37;
-    color: #000;
-    border-radius: 4px;
-}
+    .customer-table tr {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #333;
+        padding: 1rem;
+    }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+    .customer-table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .customer-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-weight: bold;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
 }

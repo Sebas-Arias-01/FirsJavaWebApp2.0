@@ -72,7 +72,7 @@
                             <td>${cust.email}</td>
                             <td>${cust.address}</td>
                             <td>
-                                <form action="edit" method="post" style="display:inline;">
+                                <form action="editcustomer" method="post" style="display:inline;">
                                     <input type="hidden" name="cust_id" value="${cust.id}">
                                     <button type="submit" class="btn edit">Modificar</button>
                                 </form>

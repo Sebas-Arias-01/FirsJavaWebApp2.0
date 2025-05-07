@@ -23,7 +23,7 @@ public class DeleteEmployeeController extends HttpServlet {
         List<Employee> list = (List<Employee>) request.getSession().getAttribute("employeelist");
 
         if (confirm == null || confirm.equals("false")) {
-            // Primera vez: mostrar pantalla de confirmación
+
             for (Employee emp : list) {
                 if (emp.getId() == id) {
                     request.setAttribute("employee", emp);
@@ -32,7 +32,7 @@ public class DeleteEmployeeController extends HttpServlet {
             }
             request.getRequestDispatcher("WEB-INF/jsp/deletemplyee.jsp").forward(request, response);
         } else {
-            // Confirmado: eliminar el empleado
+
             Iterator<Employee> iterator = list.iterator();
             while (iterator.hasNext()) {
                 Employee emp = iterator.next();

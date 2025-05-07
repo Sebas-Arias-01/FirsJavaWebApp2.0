@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/addemployee")
 public class AddEmployeeController extends HttpServlet {
-    private List<Employee> employeeList = new ArrayList<Employee>();
+    public List<Employee> employeeList = new ArrayList<Employee>();
 
     public AddEmployeeController() {
         super();

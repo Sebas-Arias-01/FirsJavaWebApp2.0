@@ -18,7 +18,7 @@
             }
         }
         request.setAttribute("found", found);
-        request.setAttribute("searchId", searchId);
+        request.setAttribute("searchId", searchId); // Esta línea permite usar ${searchId} en JSTL
     }
 %>
 <!DOCTYPE html>
@@ -71,16 +71,16 @@
     <div class="content">
         <h1 class="title">Buscar Cliente por ID</h1>
 
-        <form action="findemployee" method="post" class="search-form">
+        <form action="findcustomer" method="post" class="search-form">
             <label for="searchId">ID del Cliente:</label>
             <input type="number" id="searchId" name="searchId" required min="1">
             <button type="submit">Buscar</button>
         </form>
 
-        <c:if test="${not empty param.searchId}">
+        <c:if test="${not empty searchId}">
             <c:choose>
                 <c:when test="${not empty found}">
-                    <table class="employee-table" style="margin-top: 20px; width: 50%;">
+                    <table class="customer-table" style="margin-top: 20px; width: 50%;">
                         <tr>
                             <th>ID</th>
                             <td>${found.id}</td>
@@ -90,12 +90,12 @@
                             <td>${found.name}</td>
                         </tr>
                         <tr>
-                            <th>Email</th>
-                            <td>${found.email}</td>
+                            <th>Dirección</th>
+                            <td>${found.address}</td>
                         </tr>
                         <tr>
-                            <th>Teléfono</th>
-                            <td>${found.phone}</td>
+                            <th>Email</th>
+                            <td>${found.email}</td>
                         </tr>
                         <tr>
                             <th>Acciones</th>

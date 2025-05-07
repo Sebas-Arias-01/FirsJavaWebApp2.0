@@ -28,9 +28,9 @@
             <input type="hidden" name="id" value="<%= emp.getId() %>"/>
             <input type="hidden" name="confirm" value="true"/>
 
-            <p><strong>Nombre:</strong> <%= emp.getName() %></p>
-            <p><strong>Email:</strong> <%= emp.getEmail() %></p>
-            <p><strong>Teléfono:</strong> <%= emp.getPhone() %></p>
+            <p><strong>Nombre:</strong> ${emp.getName()}</p>
+            <p><strong>Email:</strong> ${emp.getEmail()}</p>
+            <p><strong>Teléfono:</strong> ${emp.getPhone()}</p>
 
             <button type="submit" class="btn delete-btn">Confirmar Eliminación</button>
         </form>

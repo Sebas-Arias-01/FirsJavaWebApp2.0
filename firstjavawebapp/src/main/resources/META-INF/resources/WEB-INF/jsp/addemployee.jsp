@@ -48,18 +48,14 @@
                 <button type="submit">Enviar</button>
             </form>
     
-            <%
-                List<Employee> employeeList = (List<Employee>) request.getSession().getAttribute("employeelist");
-                if (employeeList != null) {
-            %>
-                <h2 style="text-align: center; margin-top: 2rem;">Existen empleados en el sistema!</h2>
-            <%
-                } else {
-            %>
-                <h2 style="text-align: center; margin-top: 2rem;">Lista de empleados vacía</h2>
-            <%
-                }
-            %>
+            <c:choose>
+                <c:when test="${not empty sessionScope.employeelist}">
+                    <h2 style="text-align: center; margin-top: 2rem;">Existen empleados en el sistema!</h2>  
+                </c:when>
+                <c:otherwise>
+                    <h2 style="text-align: center; margin-top: 2rem;">Lista de empleados vacía</h2>
+                </c:otherwise>
+            </c:choose>
     
             <a href="employees" class="link-back">Ver lista de empleados</a>
         </div>

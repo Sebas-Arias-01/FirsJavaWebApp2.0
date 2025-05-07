@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="co.edu.uptc.firstjavawebapp.model.Employee" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     request.setCharacterEncoding("UTF-8");
 %>
-<%@ page import="java.util.*, co.edu.uptc.firstjavawebapp.model.Employee" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,41 +32,35 @@
                 </tr>
             </thead>
             <tbody>
-            <%
-                List<Employee> list = (List<Employee>) session.getAttribute("employeelist");
-                if (list != null && !list.isEmpty()) {
-                    for (Employee emp : list) {
-            %>
-                <tr>
-                    <td><%= emp.getId() %></td>
-                    <td><%= emp.getName() %></td>
-                    <td><%= emp.getEmail() %></td>
-                    <td><%= emp.getPhone() %></td>
-                    <td>
-                        <!-- Botón MODIFICAR como formulario POST ocultando el ID -->
-                        <form action="edit" method="post" style="display:inline;">
-                            <input type="hidden" name="emp_id" value="<%= emp.getId() %>">
-                            <button type="submit" class="btn edit">Modificar</button>
-                        </form>
+            <c:choose>
+                <c:when test="${not empty sessionScope.employeelist}">
+                    <c:forEach var="emp" items="${sessionScope.employeelist}">
+                        <tr>
+                            <td>${emp.id}</td>
+                            <td>${emp.name}</td>
+                            <td>${emp.email}</td>
+                            <td>${emp.phone}</td>
+                            <td>
+                                <form action="edit" method="post" style="display:inline;">
+                                    <input type="hidden" name="emp_id" value="${emp.id}">
+                                    <button type="submit" class="btn edit">Modificar</button>
+                                </form>
 
-                        <form action="delete" method="post" style="display:inline;">
-                            <input type="hidden" name="id" value="<%= emp.getId() %>">
-                            <input type="hidden" name="confirm" value="false">
-                            <button type="submit" class="btn delete">Eliminar</button>
-                        </form>
-                        
-                    </td>
-                </tr>
-            <%
-                    }
-                } else {
-            %>
-                <tr>
-                    <td colspan="5">No hay empleados registrados.</td>
-                </tr>
-            <%
-                }
-            %>
+                                <form action="delete" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="${emp.id}">
+                                    <input type="hidden" name="confirm" value="false">
+                                    <button type="submit" class="btn delete">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td colspan="5">No hay empleados registrados.</td>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
             </tbody>
         </table>
     </div>

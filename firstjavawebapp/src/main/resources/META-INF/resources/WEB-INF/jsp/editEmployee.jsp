@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     request.setCharacterEncoding("UTF-8");
@@ -26,13 +27,13 @@
             <input type="hidden" name="emp_id" value="<%= emp.getId() %>"/>
 
             <label for="emp_name">Nombre:</label>
-            <input type="text" id="emp_name" name="emp_name" value="<%= emp.getName() %>" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"/>
+            <input type="text" id="emp_name" name="emp_name" value="${emp.getName()}" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"/>
 
             <label for="emp_email">Email:</label>
-            <input type="email" id="emp_email" name="emp_email" value="<%= emp.getEmail() %>"/>
+            <input type="email" id="emp_email" name="emp_email" value="${emp.getEmail()}"/>
 
             <label for="emp_phone">Telefono:</label>
-            <input type="tel" id="emp_phone" name="emp_phone" value="<%= emp.getPhone() %>" pattern="[0-9]{7,10}"/>
+            <input type="tel" id="emp_phone" name="emp_phone" value="${emp.getPhone()}" pattern="[0-9]{7,10}"/>
 
             <button type="submit" class="btn">Guardar cambios</button>
         </form>

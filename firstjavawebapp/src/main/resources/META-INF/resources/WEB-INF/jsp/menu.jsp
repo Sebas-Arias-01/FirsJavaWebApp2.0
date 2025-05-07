@@ -37,9 +37,9 @@
         <div class="dropdown">
             <button class="dropbtn">Menú Orden</button>
             <div class="dropdown-content">
-                <a href="#">Crear Orden</a>
-                <a href="#">Gestionar Ordenes</a>
-                <a href="#">Buscar Orden</a>
+                <a href="${pageContext.request.contextPath}/Addorder">Crear Orden</a>
+                <a href="orders">Gestionar Órdenes</a>
+                <a href="findorder">Buscar Orden</a>
             </div>
         </div>
 

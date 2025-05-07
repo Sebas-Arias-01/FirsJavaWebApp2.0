@@ -30,8 +30,8 @@
         <div class="dropdown">
             <button class="dropbtn">Menú Cliente</button>
             <div class="dropdown-content">
-                <a href="#">Crear Cliente</a>
-                <a href="#">Gestionar Clientes</a>
+                <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Cliente</a>
+                <a href="customers">Gestionar Clientes</a>
                 <a href="#">Buscar Cliente</a>
             </div>
         </div>

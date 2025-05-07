@@ -8,12 +8,41 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo5.css">
 </head>
 <body>
-    <!-- NAV -->
     <div class="topnav">
-        <a href="${pageContext.request.contextPath}/introaddemployee">Crear empleado</a>
-        <a href="${pageContext.request.contextPath}/menu"> Menu Principal</a>
-        <a href="${pageContext.request.contextPath}/employees">Gestionar empleados</a>
-        <a href="${pageContext.request.contextPath}/findemployee">Buscar empleado</a>
+        <div class="dropdown">
+            <a class="dropbtn" href="menu">Menu Principal</a>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Menú Empleado</button>
+            <div class="dropdown-content">
+                <a href="${pageContext.request.contextPath}/introaddemployee">Crear Empleado</a>
+                <a href="employees">Gestionar Empleados</a>
+                <a href="findemployee">Buscar Empleado</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Menú Cliente</button>
+            <div class="dropdown-content">
+                <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Cliente</a>
+                <a href="customers">Gestionar Clientes</a>
+                <a href="#">Buscar Cliente</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Menú Orden</button>
+            <div class="dropdown-content">
+                <a href="#">Crear Orden</a>
+                <a href="#">Gestionar Ordenes</a>
+                <a href="#">Buscar Orden</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="dropbtn" href="logout">Cerrar Sesión</a>
+        </div>
     </div>
 
     <br><br><br><br><br><br>

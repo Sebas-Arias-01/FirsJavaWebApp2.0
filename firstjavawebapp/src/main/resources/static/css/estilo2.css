@@ -32,6 +32,7 @@ body {
 .topnav {
     background-color: #000; /* Negro */
     display: flex;
+    align-items: center;
     justify-content: center;
     padding: 1rem;
     border-bottom: 2px solid #d4af37; /* Línea dorada */

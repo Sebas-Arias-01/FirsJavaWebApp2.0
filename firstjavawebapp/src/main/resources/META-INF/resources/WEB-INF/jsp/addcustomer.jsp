@@ -32,7 +32,7 @@
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Cliente</a>
                 <a href="customers">Gestionar Clientes</a>
-                <a href="#">Buscar Cliente</a>
+                <a href="findcustomer">Buscar Cliente</a>
             </div>
         </div>
 

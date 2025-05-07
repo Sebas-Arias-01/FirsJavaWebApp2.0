@@ -41,7 +41,7 @@ public class AddCustomerController extends HttpServlet{
             customerList.add(cust);
             req.getSession().setAttribute("oper", "success");
             req.getSession().setAttribute("customerlist", customerList);
-            resp.sendRedirect("confirm.html");
+            resp.sendRedirect("confirmcustomer.html");
         } catch (IOException e) {
             resp.sendRedirect("/error.html");
         }

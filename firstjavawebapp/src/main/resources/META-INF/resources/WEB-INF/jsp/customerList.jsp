@@ -15,6 +15,10 @@
     <div class="topnav">
 
         <div class="dropdown">
+            <a class="dropbtn" href="menu">Menu Principal</a>
+        </div>
+
+        <div class="dropdown">
             <button class="dropbtn">Menú Empleado</button>
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introaddemployee">Crear Empleado</a>
@@ -61,7 +65,7 @@
             <tbody>
             <c:choose>
                 <c:when test="${not empty sessionScope.customerlist}">
-                    <c:forEach var="emp" items="${sessionScope.customerlist}">
+                    <c:forEach var="cust" items="${sessionScope.customerlist}">
                         <tr>
                             <td>${cust.id}</td>
                             <td>${cust.name}</td>

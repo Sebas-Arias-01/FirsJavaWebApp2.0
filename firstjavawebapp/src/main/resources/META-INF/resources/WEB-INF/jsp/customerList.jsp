@@ -77,7 +77,7 @@
                                     <button type="submit" class="btn edit">Modificar</button>
                                 </form>
 
-                                <form action="delete" method="post" style="display:inline;">
+                                <form action="deletecustomer" method="post" style="display:inline;">
                                     <input type="hidden" name="id" value="${cust.id}">
                                     <input type="hidden" name="confirm" value="false">
                                     <button type="submit" class="btn delete">Eliminar</button>

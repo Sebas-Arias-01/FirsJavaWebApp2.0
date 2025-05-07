@@ -59,7 +59,7 @@
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <td style="text-align: right; padding: 0.5rem;">ID Cliente:</td>
-                        <td><input type="number" name="cust_id" required pattern="^\d{7,10}$" class="input-style"></td>
+                        <td><input type="text" name="cust_id" required pattern="^\d{7,10}$" class="input-style"></td>
                     </tr>
                     <tr>
                         <td style="text-align: right; padding: 0.5rem;">Nombre Cliente:</td>

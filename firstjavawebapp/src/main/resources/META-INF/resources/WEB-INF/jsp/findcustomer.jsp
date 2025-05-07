@@ -1,18 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*, co.edu.uptc.firstjavawebapp.model.Employee" %>
+<%@ page import="java.util.*, co.edu.uptc.firstjavawebapp.model.Customer" %>
 <%
     request.setCharacterEncoding("UTF-8");
 
     String searchId = request.getParameter("searchId");
-    Employee found = null;
+    Customer found = null;
 
     if (searchId != null && !searchId.trim().isEmpty()) {
-        List<Employee> list = (List<Employee>) session.getAttribute("employeelist");
+        List<Customer> list = (List<Customer>) session.getAttribute("customerlist");
         if (list != null) {
-            for (Employee emp : list) {
-                if (String.valueOf(emp.getId()).equals(searchId)) {
-                    found = emp;
+            for (Customer cus : list) {
+                if (String.valueOf(cus.getId()).equals(searchId)) {
+                    found = cus;
                     break;
                 }
             }
@@ -26,7 +26,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Buscar Empleado</title>
+    <title>Buscar Cliente</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo4.css">
 </head>
 
@@ -69,10 +69,10 @@
     </div>
 
     <div class="content">
-        <h1 class="title">Buscar Empleado por ID</h1>
+        <h1 class="title">Buscar Cliente por ID</h1>
 
         <form action="findemployee" method="post" class="search-form">
-            <label for="searchId">ID del empleado:</label>
+            <label for="searchId">ID del Cliente:</label>
             <input type="number" id="searchId" name="searchId" required min="1">
             <button type="submit">Buscar</button>
         </form>
@@ -108,7 +108,7 @@
                 </c:when>
                 <c:otherwise>
                     <p style="margin-top: 20px;">
-                        Empleado con ID <strong>${searchId}</strong> no encontrado.
+                        Cliente con ID <strong>${searchId}</strong> no encontrado.
                     </p>
                 </c:otherwise>
             </c:choose>

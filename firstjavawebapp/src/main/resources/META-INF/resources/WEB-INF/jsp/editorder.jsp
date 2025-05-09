@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Editar Cliente</title>
+    <title>Editar Orden</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo5.css">
 </head>
 <body>
@@ -47,35 +47,46 @@
 
     <br><br><br><br><br><br>
 
-    <c:if test="${customer == null}">
+    <c:if test="${order == null}">
         <div class="form-container">
-            <h1 style="text-align: center; color: red;">Cliente no encontrado</h1>
-            <a href="${pageContext.request.contextPath}/customers" class="link-back">Volver</a>
+            <h1 style="text-align: center; color: red;">Orden no encontrada</h1>
+            <a href="${pageContext.request.contextPath}/orders" class="link-back">Volver</a>
         </div>
     </c:if>
 
 
-    <c:if test="${customer != null}">
+    <c:if test="${order != null}">
         <div class="form-container">
-            <h1 style="text-align: center; color: #d4af37;">Modificar Cliente</h1>
-            <form action="editcustomer" method="post">
-                <input type="hidden" name="cust_id" value="${customer.id}"/>
+            <h1 style="text-align: center; color: #d4af37;">Modificar Orden</h1>
+            <form action="editorder" method="post">
+                <input type="hidden" name="cust_id" value="${order.id}"/>
 
-                <label for="cust_name">Nombre:</label>
-                <input type="text" id="cust_name" name="cust_name"
-                       value="${customer.name}"
-                       pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+"/>
+                <label for="order_id">ID Pedido:</label>
+                <input type="text" id="order_id" name="order_id"
+                       value="${order.id}"/>
 
-                <label for="cust_email">Email:</label>
-                <input type="email" id="cust_email" name="cust_email" value="${customer.email}"/>
+                <label for="customer_document">Documento del Cliente:</label>
+                <input type="text" id="customer_document" name="customer_document" value="${order.customerDocument}"
+                       pattern="[0-9]{5,15}"/>
 
-                <label for="cust_address">Dirección:</label>
-                <input type="text" id="cust_address" name="cust_address"
-                       value="${customer.address}" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\#\-\.\,]{10,100}$"/>
+                <label for="order_date">Fecha del Pedido:</label>
+                <input type="date" id="order_date" name="order_date"
+                       value="${order.orderDate}" />
+
+                <label for="product_description">Descripción del Producto:</label>
+                <input type="text" id="product_description" name="product_description"
+                        value="${order.productDescription}" />
+
+                <label for="order_status">Estado del Pedido:</label>
+                <select name="order_status" id="order_status">
+                    <option value="Created">Creado</option>
+                    <option value="To be shipped">Por enviarse</option>
+                    <option value="Shipped">Enviado</option>
+                </select>
 
                 <button type="submit" class="btn">Guardar cambios</button>
             </form>
-            <a href="${pageContext.request.contextPath}/customers" class="link-back">Volver a la lista de clientes</a>
+            <a href="${pageContext.request.contextPath}/orders" class="link-back">Volver a la lista de pedidos</a>
         </div>
     </c:if>
 

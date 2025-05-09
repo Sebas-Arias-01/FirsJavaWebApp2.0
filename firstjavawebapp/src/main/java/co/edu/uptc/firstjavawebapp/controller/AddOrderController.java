@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.uptc.firstjavawebapp.model.Order;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,12 +19,12 @@ public class AddOrderController extends HttpServlet {
         super();
     }
 
-    // Mostrar formulario addorder.jsp
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/addorder.jsp");
-        rd.forward(req, resp);
-    }
+    // // Mostrar formulario addorder.jsp
+    // @Override
+    // protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    //     RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/addorder.jsp");
+    //     rd.forward(req, resp);
+    // }
 
     // Procesar formulario enviado
     @Override
@@ -42,7 +41,7 @@ public class AddOrderController extends HttpServlet {
 
             req.getSession().setAttribute("oper", "success");
             req.getSession().setAttribute("orderlist", orderList);
-            resp.sendRedirect("confirm.html");
+            resp.sendRedirect("confirmorder.html");
         } catch (Exception e) {
             resp.sendRedirect("/error.html");
         }

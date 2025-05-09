@@ -7,7 +7,7 @@ public class Order {
     private String productDescription;
     private String orderStatus; // Created, To be shipped, Shipped
 
-    // Constructor
+    
     public Order(String orderId, String customerDocument, String orderDate,
                  String productDescription, String orderStatus) {
         this.orderId = orderId;
@@ -17,7 +17,7 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    // Getters and Setters
+   
     public String getOrderId() {
         return orderId;
     }

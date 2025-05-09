@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Cliente</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo5.css">
+    <title>Eliminar Orden</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo6.css">
 </head>
 <body>
     <div class="topnav">
@@ -45,41 +46,32 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br>
-
-    <c:if test="${customer == null}">
+    <c:if test="${order == null}">
         <div class="form-container">
-            <h1 style="text-align: center; color: red;">Cliente no encontrado</h1>
-            <a href="${pageContext.request.contextPath}/customers" class="link-back">Volver</a>
+            <h1 class="title-delete">Orden no encontrado</h1>
+            <p>No se pudo encontrar la orden de pedido especificada.</p>
+            <a href="${pageContext.request.contextPath}/orders" class="link-back">Volver a la lista de pedidos</a>
         </div>
     </c:if>
 
-
-    <c:if test="${customer != null}">
+    <c:if test="${order != null}">
         <div class="form-container">
-            <h1 style="text-align: center; color: #d4af37;">Modificar Cliente</h1>
-            <form action="editcustomer" method="post">
-                <input type="hidden" name="cust_id" value="${customer.id}"/>
+            <h1 class="title-delete">¿Estás seguro que deseas eliminar esta order?</h1>
+            <form action="deleteorder" method="post">
+                <input type="hidden" name="id" value="${order.id}"/>
+                <input type="hidden" name="confirm" value="true"/>
 
-                <label for="cust_name">Nombre:</label>
-                <input type="text" id="cust_name" name="cust_name"
-                       value="${customer.name}"
-                       pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+"/>
+                <p><strong>Documento del Cliente:</strong> ${order.customerId}</p>
+                <p><strong>Fecha del Pedido:</strong> ${order.orderDate}</p>
+                <p><strong>Descripción del Producto:</strong> ${order.productDescription}</p>
+                <p><strong>Estado del Pedido:</strong> ${order.status}</p>
 
-                <label for="cust_email">Email:</label>
-                <input type="email" id="cust_email" name="cust_email" value="${customer.email}"/>
-
-                <label for="cust_address">Dirección:</label>
-                <input type="text" id="cust_address" name="cust_address"
-                       value="${customer.address}" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\#\-\.\,]{10,100}$"/>
-
-                <button type="submit" class="btn">Guardar cambios</button>
+                <button type="submit" class="btn delete-btn">Confirmar Eliminación</button>
             </form>
-            <a href="${pageContext.request.contextPath}/customers" class="link-back">Volver a la lista de clientes</a>
+
+            <a href="${pageContext.request.contextPath}/orders" class="link-back">Cancelar</a>
         </div>
     </c:if>
-
-    <br><br><br><br>
 
     <div class="footer">
         <p>© 2025 Employee App. Todos los derechos reservados.</p>

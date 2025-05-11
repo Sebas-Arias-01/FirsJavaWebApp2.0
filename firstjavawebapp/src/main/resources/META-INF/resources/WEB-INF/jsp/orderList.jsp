@@ -51,12 +51,12 @@
 
     <div class="content">
         <h1 class="title">Órdenes</h1>
-        <table class="employee-table">
+        <table class="order-table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Cliente</th>
-                    <th>Fecha</th>
+                    <th>Documento Cliente</th>
+                    <th>Fecha Orden</th>
                     <th>Descripción</th>
                     <th>Estado</th>
                     <th>Acción</th>
@@ -67,21 +67,22 @@
                 <c:when test="${not empty sessionScope.orderlist}">
                     <c:forEach var="order" items="${sessionScope.orderlist}">
                         <tr>
-                            <td>${order.id}</td>
-                            <td>${order.customerId}</td>
+                            <td>${order.orderId}</td>
+                            <td>${order.customerDocument}</td>
                             <td>${order.orderDate}</td>
                             <td>${order.productDescription}</td>
-                            <td>${order.status}</td>
+                            <td>${order.orderStatus}</td>
                             <td>
                                 <form action="editorder" method="post" style="display:inline;">
-                                    <input type="hidden" name="order_id" value="${order.id}">
+                                    <input type="hidden" name="order_id" value="${order.orderId}">
                                     <button type="submit" class="btn edit">Modificar</button>
                                 </form>
-
+                                
                                 <form action="deleteorder" method="post" style="display:inline;">
-                                    <input type="hidden" name="id" value="${order.id}">
+                                    <input type="hidden" name="id" value="${order.orderId}">
                                     <input type="hidden" name="confirm" value="false">
                                     <button type="submit" class="btn delete">Eliminar</button>
+                                </form>
                                 </form>
                             </td>
                         </tr>

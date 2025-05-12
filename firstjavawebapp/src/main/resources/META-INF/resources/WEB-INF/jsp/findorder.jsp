@@ -100,8 +100,8 @@
                         <tr>
                             <th>Acciones</th>
                             <td>
-                                <a href="edit?id=${found.orderId}" class="btn edit">Modificar</a>
-                                <a href="delete?id=${found.orderId}" class="btn delete">Eliminar</a>
+                                <a href="edit?orderId=${found.orderId}" class="btn edit">Modificar</a>
+                                <a href="delete?orderId=${found.orderId}" class="btn delete">Eliminar</a>
                             </td>
                         </tr>
                     </table>

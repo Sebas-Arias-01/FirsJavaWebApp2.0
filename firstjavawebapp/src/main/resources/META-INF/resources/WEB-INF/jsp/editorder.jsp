@@ -59,11 +59,8 @@
         <div class="form-container">
             <h1 style="text-align: center; color: #d4af37;">Modificar Orden</h1>
             <form action="editorder" method="post">
-                <input type="hidden" name="cust_id" value="${order.id}"/>
+                <input type="hidden" name="order_id" value="${order.orderId}"/>
 
-                <label for="order_id">ID Pedido:</label>
-                <input type="text" id="order_id" name="order_id"
-                       value="${order.id}"/>
 
                 <label for="customer_document">Documento del Cliente:</label>
                 <input type="text" id="customer_document" name="customer_document" value="${order.customerDocument}"

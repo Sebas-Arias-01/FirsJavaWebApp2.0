@@ -25,7 +25,7 @@ public class DeleteOrder extends HttpServlet {
         if (confirm == null || confirm.equals("false")) {
 
             for (Order order : orderList) {
-                if (order.getOrderId() == id) {
+                if (order.getOrderId().equals(id)) {
                     request.setAttribute("order", order);
                     break;
                 }
@@ -36,7 +36,7 @@ public class DeleteOrder extends HttpServlet {
             Iterator<Order> iterator = orderList.iterator();
             while (iterator.hasNext()) {
                 Order order = iterator.next();
-                if (order.getOrderId() == id) {
+                if (order.getOrderId().equals(id)) {
                     iterator.remove();
                     break;
                 }

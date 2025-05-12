@@ -58,13 +58,13 @@
         <div class="form-container">
             <h1 class="title-delete">¿Estás seguro que deseas eliminar esta order?</h1>
             <form action="deleteorder" method="post">
-                <input type="hidden" name="id" value="${order.id}"/>
+                <input type="hidden" name="id" value="${order.orderId}"/>
                 <input type="hidden" name="confirm" value="true"/>
 
-                <p><strong>Documento del Cliente:</strong> ${order.customerId}</p>
+                <p><strong>Documento del Cliente:</strong> ${order.customerDocument}</p>
                 <p><strong>Fecha del Pedido:</strong> ${order.orderDate}</p>
                 <p><strong>Descripción del Producto:</strong> ${order.productDescription}</p>
-                <p><strong>Estado del Pedido:</strong> ${order.status}</p>
+                <p><strong>Estado del Pedido:</strong> ${order.orderStatus}</p>
 
                 <button type="submit" class="btn delete-btn">Confirmar Eliminación</button>
             </form>

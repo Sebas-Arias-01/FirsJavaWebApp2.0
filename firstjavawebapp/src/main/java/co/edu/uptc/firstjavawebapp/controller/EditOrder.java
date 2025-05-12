@@ -29,7 +29,7 @@ public class EditOrder extends HttpServlet {
             if (customerDocument == null || orderDate == null || productDescription == null || orderStatus == null) {   
                 // Solo llegó el ID → Mostrar el formulario de edición
                 for (Order order : orderList) {
-                    if (order.getOrderId() == id) {
+                    if (order.getOrderId().equals(id)) {
                         request.setAttribute("order", order);
                         break;
                     }
@@ -38,7 +38,7 @@ public class EditOrder extends HttpServlet {
             } else {
     
                 for (Order order : orderList) {
-                    if (order.getOrderId() == id) {
+                    if (order.getOrderId().equals(id)) {
                         order.setCustomerDocument(customerDocument);
                         order.setOrderDate(orderDate);
                         order.setProductDescription(productDescription);

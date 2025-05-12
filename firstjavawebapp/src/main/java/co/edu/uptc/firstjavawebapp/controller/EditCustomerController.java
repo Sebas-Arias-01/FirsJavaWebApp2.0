@@ -16,8 +16,11 @@ public class EditCustomerController extends HttpServlet{
     @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-    
-            String idParam = request.getParameter("cust_id");
+                    String idParam = request.getParameter("cust_id");
+                    if (idParam == null || idParam.trim().isEmpty()) {
+                        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID no válido.");
+                        return;
+                    }
             String name = request.getParameter("cust_name");
             String email = request.getParameter("cust_email");
             String address = request.getParameter("cust_address");

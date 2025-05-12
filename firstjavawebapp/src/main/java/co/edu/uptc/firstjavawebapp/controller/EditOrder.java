@@ -18,7 +18,11 @@ public class EditOrder extends HttpServlet {
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
     
-            String id = request.getParameter("order_id");
+                    String id = request.getParameter("order_id");
+                    if (id == null || id.trim().isEmpty()) {
+                        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID de la orden no válido.");
+                        return;
+                    }
             String customerDocument = request.getParameter("customer_document");
             String orderDate = request.getParameter("order_date");
             String productDescription = request.getParameter("product_description");

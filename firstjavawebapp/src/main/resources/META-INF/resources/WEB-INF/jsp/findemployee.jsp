@@ -100,8 +100,16 @@
                         <tr>
                             <th>Acciones</th>
                             <td>
-                                <a href="edit?id=${found.id}" class="btn edit">Modificar</a>
-                                <a href="delete?id=${found.id}" class="btn delete">Eliminar</a>
+                                <form action="edit" method="post" style="display:inline;">
+                                    <input type="hidden" name="emp_id" value="${found.id}">
+                                    <button type="submit" class="btn edit">Modificar</button>
+                                </form>
+                                
+                                <form action="delete" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="${found.id}">
+                                    <input type="hidden" name="confirm" value="false">
+                                    <button type="submit" class="btn delete">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     </table>

@@ -83,7 +83,7 @@
                                     <input type="hidden" name="confirm" value="false">
                                     <button type="submit" class="btn delete">Eliminar</button>
                                 </form>
-                                </form>
+                                
                             </td>
                         </tr>
                     </c:forEach>

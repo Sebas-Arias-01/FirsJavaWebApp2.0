@@ -16,8 +16,19 @@ public class DeleteCustomerController extends HttpServlet{
      @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idParam = request.getParameter("id");
+if (idParam == null || idParam.trim().isEmpty()) {
+    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID no válido.");
+    return;
+}
 
-        int id = Integer.parseInt(request.getParameter("id"));
+int id = -1;
+try {
+    id = Integer.parseInt(idParam);
+} catch (NumberFormatException e) {
+    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID no válido.");
+    return;
+}
         String confirm = request.getParameter("confirm");
         List<Customer> customerList = (List<Customer>) request.getSession().getAttribute("customerlist");
         
